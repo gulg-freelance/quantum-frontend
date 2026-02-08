@@ -1,0 +1,79 @@
+<section>
+  <ul id="services" class="frame">
+    <li>Дни Рождения</li>
+    <li>Праздники</li>
+    <li>Корпоративы</li>
+    <li>Тимбилдинг</li>
+  </ul>
+
+  <div id="gallery" class="collapsed">
+    <img
+      src="https://sun9-75.userapi.com/s/v1/ig2/r0Hh6rUPsV01pVcTYNa7I0Y8uE1Zr7Nzb4MWy18TRw0ls2pKLSrP1ioV2xZtVN7_3vsUy21QwAQjlJ33a0KQnrYR.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1024x1024&from=bu&cs=1024x0"
+    />
+    <img
+      src="https://sun9-66.userapi.com/s/v1/ig2/iLL3iSZE8DsveGCnWv2uP4WkGeX87e41_7ZkqI3UcJj5j5lo7VsUQQGlzW9G1a027e5JnodyNeazDQSUQwPzQ5Io.jpg?quality=95&as=32x24,48x36,72x54,108x81,160x119,240x179,360x269,480x358,540x403,640x478,720x538,1080x806,1200x896&from=bu&cs=1200x0"
+    />
+    <img
+      src="https://sun9-27.userapi.com/s/v1/ig2/RJa903qVALby-nJQOuCH3WB__sVkadW2BGw3AERzaHGHVkhD92hD2dDowpQcFT7WnM69y9mS83-MHURlXJPvly3E.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1024x1024&from=bu&cs=1024x0"
+    />
+    <img
+      src="https://sun9-28.userapi.com/s/v1/ig2/Nr7Do4s-1ToeH6Xc2EmvZIkuT68QFwi2HtUO9ulAnYQNjLre8CMTenk2r1swXO1vYsijdgwQPTQwz-Ww5dIj4qRc.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1024x1024&from=bu&cs=1024x0"
+    />
+  </div>
+
+  <button id="gallery-more">Больше фото</button>
+</section>
+
+<style lang="scss">
+  @use "../styles/theme";
+
+  section {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    margin-top: 96px;
+  }
+
+  #services {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 64px;
+
+    height: 64px;
+    box-sizing: border-box;
+    margin: 0;
+    margin-bottom: 32px;
+    padding: 0 32px;
+    list-style-type: none;
+  }
+
+  #gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 32px;
+
+    img {
+      height: 384px;
+      border-radius: 64px;
+    }
+
+    &.collapsed {
+      mask: linear-gradient(
+          to bottom,
+          black,
+          black calc(100% - 128px),
+          #fff6 calc(100% - 96px),
+          #fff2 calc(100% - 64px),
+          transparent calc(100% - 32px)
+        )
+        100% 100% / 100% 100%;
+    }
+  }
+
+  #gallery-more {
+    display: block;
+    margin: 0 auto;
+  }
+</style>
