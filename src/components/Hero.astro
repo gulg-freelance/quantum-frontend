@@ -1,0 +1,49 @@
+<section>
+  <h1>Арена Квантум &mdash; лучший VR-отдых <nobr>в Екатеринбурге</nobr></h1>
+  <p class="subtitle">
+    Полное погружение, топовое оборудование, приятная атмосфера
+  </p>
+  <button class="primary">В новый мир</button>
+</section>
+
+<style lang="scss">
+  @use "../styles/theme";
+
+  section {
+    width: 100%;
+    max-width: 1100px;
+    padding: 64px 96px;
+    margin: auto;
+
+    background-image: url(/hero.png),
+      radial-gradient(rgba(theme.$accent, 60%), transparent);
+    background-position:
+      105% bottom,
+      5% 55%;
+    background-size:
+      auto 512px,
+      150% 125%;
+    background-repeat: no-repeat;
+    border-radius: 0 0 64px 64px;
+  }
+
+  h1,
+  .subtitle {
+    max-width: 60%;
+  }
+
+  h1 {
+    margin: 96px 0 16px 0;
+  }
+
+  .subtitle {
+    margin: 16px 0;
+
+    font-size: 32px;
+    color: theme.$secondary-fg;
+  }
+
+  button {
+    margin-top: 48px;
+  }
+</style>

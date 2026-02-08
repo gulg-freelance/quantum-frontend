@@ -1,11 +1,63 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+// styles
+import "../styles/global.scss";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// fonts
+import "@fontsource/russo-one";
+import "@fontsource-variable/roboto";
+
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+
+const title = "VR Арена Квантум";
+const description = "...";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <!--  <meta property="og:image" content={new URL("social.png", Astro.site)} /> -->
+    <meta property="og:url" content={Astro.site} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <Hero />
+    </main>
+    <!-- <Footer /> -->
+  </body>
+</html>
+
+<style lang="scss">
+  @use "../styles/theme";
+
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media screen and (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    background-color: theme.$bg;
+  }
+</style>
