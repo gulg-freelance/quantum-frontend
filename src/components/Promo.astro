@@ -1,0 +1,33 @@
+<section>
+  <h2>Акция</h2>
+  <p>Весь февраль: стоимость в выходной день по цене буднего дня!</p>
+</section>
+
+<style lang="scss">
+  @use "../styles/theme";
+
+  section {
+    width: min-content;
+    min-width: 640px;
+    padding: 48px 96px;
+    margin: auto;
+    margin-top: 128px;
+    box-sizing: border-box;
+
+    background-image: radial-gradient(rgba(theme.$accent, 60%), transparent);
+    background-position: 5% 55%;
+    background-size: 400% 400%;
+    background-repeat: no-repeat;
+    border-radius: 64px;
+  }
+
+  h2 {
+    margin: 0;
+    margin-bottom: 8px;
+  }
+
+  p {
+    margin: 8px 0;
+    color: theme.$secondary-fg;
+  }
+</style>
