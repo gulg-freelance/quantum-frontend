@@ -142,3 +142,16 @@ table {
     }
   }
 }
+
+hr {
+  border-top: 1px solid;
+  border-radius: 2px;
+  border-image: linear-gradient(
+      to right,
+      transparent,
+      rgba(theme.$fg, 10%) 10%,
+      rgba(theme.$fg, 10%) 90%,
+      transparent
+    )
+    1;
+}
