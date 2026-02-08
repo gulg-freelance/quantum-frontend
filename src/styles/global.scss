@@ -52,6 +52,18 @@ button {
 
   cursor: pointer;
 
+  transition: border ease-in-out 75ms;
+
+  &:hover {
+    background-color: rgba(theme.$fg, 10%);
+    border-color: rgba(theme.$fg, 20%);
+  }
+
+  &:active {
+    background-color: rgba(theme.$fg, 8%);
+    border-color: transparent;
+  }
+
   &.primary {
     height: 64px;
     border-radius: 64px;
