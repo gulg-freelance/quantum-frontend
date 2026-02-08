@@ -5,13 +5,16 @@
     <div class="frame">
       <h3>Пакет S</h3>
 
-      <p><b>1:45</b> общего времени</p>
-      <p>до <b>10</b> человек</p>
-      <ul>
-        <li>Два часа игры на арене (8 человек)</li>
-        <li>Две Sony PS4</li>
-        <li>45 минут лаунж зона</li>
-      </ul>
+      <div>
+        <p><b>1:45</b> общего времени</p>
+        <p>до <b>10</b> человек</p>
+        <ul>
+          <li>Два часа игры на арене (8 человек)</li>
+          <li>Две Sony PS4</li>
+          <li>45 минут лаунж зона</li>
+        </ul>
+      </div>
+
       <table>
         <thead>
           <tr>
@@ -31,13 +34,16 @@
     <div class="frame">
       <h3>Пакет M</h3>
 
-      <p><b>2:45</b> общего времени</p>
-      <p>до <b>16</b> человек</p>
-      <ul>
-        <li>Два часа игры на арене (8 человек)</li>
-        <li>Две Sony PS4</li>
-        <li>45 минут лаунж зона</li>
-      </ul>
+      <div>
+        <p><b>2:45</b> общего времени</p>
+        <p>до <b>16</b> человек</p>
+        <ul>
+          <li>Два часа игры на арене (8 человек)</li>
+          <li>Две Sony PS4</li>
+          <li>45 минут лаунж зона</li>
+        </ul>
+      </div>
+
       <table>
         <thead>
           <tr>
@@ -57,14 +63,17 @@
     <div class="frame">
       <h3>Пакет L</h3>
 
-      <p><b>2:45</b> общего времени</p>
-      <p>до <b>16</b> человек</p>
-      <ul>
-        <li>Два часа игры на арене (8 человек)</li>
-        <li>Две Sony PS4</li>
-        <li>Два часа VR зона</li>
-        <li>45 минут лаунж зона</li>
-      </ul>
+      <div>
+        <p><b>2:45</b> общего времени</p>
+        <p>до <b>16</b> человек</p>
+        <ul>
+          <li>Два часа игры на арене (8 человек)</li>
+          <li>Две Sony PS4</li>
+          <li>Два часа VR зона</li>
+          <li>45 минут лаунж зона</li>
+        </ul>
+      </div>
+
       <table>
         <thead>
           <tr>
@@ -96,7 +105,12 @@
 
     width: 100%;
     max-width: 1100px;
-    margin: auto;
+    margin: 0 auto;
+  }
+
+  .frame {
+    display: flex;
+    flex-direction: column;
   }
 
   h3 {
@@ -104,12 +118,24 @@
     margin-bottom: 24px;
   }
 
-  p,
-  li {
-    margin: 8px 0;
+  p {
+    margin: 4px 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 
   ul {
-    margin: 24px 0;
+    margin: 16px 0;
+    margin-bottom: 24px;
+
+    li {
+      margin: 8px 0;
+    }
+  }
+
+  table {
+    margin-top: auto;
   }
 </style>
