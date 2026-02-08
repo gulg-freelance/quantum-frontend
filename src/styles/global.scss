@@ -9,10 +9,15 @@ body {
   font-size: 20px;
 }
 
-h1,
 h2,
 h3 {
   text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4 {
   font-family: $font-secondary;
   font-weight: normal;
 }
@@ -23,15 +28,30 @@ h1 {
 
 h2 {
   font-size: 48px;
-  margin: 32px;
+  margin: 32px 0;
 }
 
 h3 {
   font-size: 36px;
-  margin: 24px;
+  margin: 24px 0;
+}
+
+h4 {
+  font-size: 32px;
+  margin: 16px 0;
 }
 
 /* Element styles */
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  a {
+    transition: letter-spacing ease-in-out 200ms;
+
+    &:hover {
+      letter-spacing: 4px;
+    }
+  }
+}
 
 a,
 button {
