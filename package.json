@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "quantum-frontend",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
