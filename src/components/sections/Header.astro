@@ -1,13 +1,14 @@
 ---
+import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
-import logo from "../assets/logo.png";
+import logo from "../../assets/logo.png";
 ---
 
 <div class="container">
   <header>
     <a href="#hero">
-      <img
-        src={logo.src}
+      <Image
+        src={logo}
         height="24"
         alt="Арена Квантум"
         title="Арена Квантум"
@@ -46,7 +47,7 @@ import logo from "../assets/logo.png";
 </div>
 
 <style lang="scss">
-  @use "../styles/theme";
+  @use "../../styles/theme";
 
   .container {
     position: fixed;

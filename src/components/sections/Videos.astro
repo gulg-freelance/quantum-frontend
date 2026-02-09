@@ -1,6 +1,6 @@
 ---
-import { fetchApi } from "../lib/api";
-import { currencyFormat, digitalSecondsDurationFormat } from "../lib/format";
+import { fetchApi } from "../../lib/api";
+import { digitalSecondsDurationFormat } from "../../lib/format";
 
 const { data } = await fetchApi("video-categories", {
   populate: {

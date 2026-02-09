@@ -1,5 +1,5 @@
 ---
-import { fetchApi } from "../lib/api";
+import { fetchApi } from "../../lib/api";
 
 let data;
 try {
@@ -22,7 +22,7 @@ const { title = "", description = "", active = false } = data;
 }
 
 <style lang="scss">
-  @use "../styles/theme";
+  @use "../../styles/theme";
 
   section {
     width: min-content;

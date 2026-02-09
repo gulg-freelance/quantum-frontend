@@ -1,6 +1,6 @@
 ---
-import { fetchApi } from "../lib/api";
-import { currencyFormat, digitalMinutesDurationFormat } from "../lib/format";
+import { fetchApi } from "../../lib/api";
+import { currencyFormat, digitalMinutesDurationFormat } from "../../lib/format";
 
 const { data } = await fetchApi("bundles", {
   populate: "*",
