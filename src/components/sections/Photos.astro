@@ -1,11 +1,18 @@
 ---
 import { fetchApi } from "../../lib/api";
 
-const {
-  data: { gallery },
-} = await fetchApi("service", {
-  populate: "*",
-});
+let data;
+try {
+  data = (
+    await fetchApi("service", {
+      populate: "*",
+    })
+  ).data;
+} catch {
+  data = [];
+}
+
+const { gallery = [] } = data;
 ---
 
 <section>
