@@ -41,7 +41,9 @@ h4 {
   margin: 16px 0;
 }
 
-header, footer, section {
+header,
+footer,
+section {
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
@@ -127,7 +129,7 @@ button {
 
 .frame {
   border-radius: 64px;
-  padding: 32px;
+  padding: 64px;
 
   background-color: rgba(theme.$bg, 15%);
   box-shadow: inset 8px -8px 32px rgba(theme.$fg, 10%);
