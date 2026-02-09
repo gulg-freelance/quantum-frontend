@@ -1,8 +1,25 @@
+---
+import { fetchApi } from "../../lib/api";
+
+let data;
+try {
+  data = (await fetchApi("contact-info", {})).data;
+} catch {
+  data = {};
+}
+
+const { phone } = data;
+---
+
 <section>
   <h2>Погрузись в мир безудержного веселья</h2>
-  <a href="tel:+73432712229">
+  {
+    phone && (
+      <a href={`tel:${phone}`}>
     <button class="primary">Забронировать сейчас</button>
   </a>
+    )
+  }
 </section>
 
 <style lang="scss">
