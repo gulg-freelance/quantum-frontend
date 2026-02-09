@@ -1,7 +1,8 @@
 ---
 import { Image } from "astro:assets";
-import { Icon } from "astro-icon/components";
+import Phone from "../Phone.astro";
 import logo from "../../assets/logo.png";
+import Socials from "../Socials.astro";
 ---
 
 <div class="container">
@@ -24,25 +25,9 @@ import logo from "../../assets/logo.png";
       </ul>
     </nav>
 
-    <a href="tel:+73432712229">+7 (343) 271-22-29</a>
+    <Phone />
 
-    <ul class="social">
-      <li>
-        <a href="#">
-          <Icon name="whatsapp" title="WhatsApp" size="24" />
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <Icon name="telegram" title="Telegram" size="24" />
-        </a>
-      </li>
-      <li>
-        <a href="https://vk.com/vrarenaquantum">
-          <Icon name="vk" title="ВКонтакте" size="24" />
-        </a>
-      </li>
-    </ul>
+    <Socials height="24" />
   </header>
 </div>
 
@@ -91,9 +76,5 @@ import logo from "../../assets/logo.png";
 
   nav > ul {
     gap: 48px;
-  }
-
-  .social {
-    gap: 24px;
   }
 </style>

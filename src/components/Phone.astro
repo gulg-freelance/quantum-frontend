@@ -1,0 +1,15 @@
+---
+import { fetchApi } from "../lib/api";
+import { formatPhone } from "../lib/format";
+
+let data;
+try {
+  data = (await fetchApi("contact-info", {})).data;
+} catch {
+  data = {};
+}
+
+const { phone } = data;
+---
+
+{phone && <a href={`tel:${phone}`}>{formatPhone(phone)}</a>}

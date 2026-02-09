@@ -1,5 +1,16 @@
 ---
-import { Icon } from "astro-icon/components";
+import Phone from "../Phone.astro";
+import { fetchApi } from "../../lib/api";
+import Socials from "../Socials.astro";
+
+let data;
+try {
+  data = (await fetchApi("contact-info", {})).data;
+} catch {
+  data = {};
+}
+
+const { address = "", schedule = "" } = data;
 
 const title = "VR Арена Квантум";
 ---
@@ -7,31 +18,12 @@ const title = "VR Арена Квантум";
 <footer class="frame">
   <address>
     <div>
-      <span style="float: right;">Пн&ndash;вс &mdash; 11:00&ndash;21:00</span>
-      <span>
-        620026, г. Екатетеринбург, ул. Тверитина 45<br />ТЦ "Максидом" 3 этаж
-      </span>
+      <span style="float: right;">{schedule}</span>
+      <span style="white-space: pre;">{address}</span>
     </div>
-
     <div>
-      <a href="tel:+73432712229">+7 (343) 271-22-29</a>
-      <ul class="social" style="float: right;">
-        <li>
-          <a href="#">
-            <Icon name="whatsapp" title="WhatsApp" size="48" />
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <Icon name="telegram" title="Telegram" size="48" />
-          </a>
-        </li>
-        <li>
-          <a href="https://vk.com/vrarenaquantum">
-            <Icon name="vk" title="ВКонтакте" size="48" />
-          </a>
-        </li>
-      </ul>
+      <Phone />
+      <span style="float: right;"><Socials height="48" /></span>
     </div>
   </address>
 
@@ -61,16 +53,5 @@ const title = "VR Арена Квантум";
 
   hr {
     margin: 64px 0;
-  }
-
-  .social {
-    display: inline-flex;
-    justify-content: space-between;
-    gap: 24px;
-
-    padding: 0;
-    margin: 0;
-
-    list-style-type: none;
   }
 </style>
