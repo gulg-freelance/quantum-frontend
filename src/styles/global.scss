@@ -41,7 +41,15 @@ h4 {
   margin: 16px 0;
 }
 
-/* Element styles */
+header, footer, section {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+section {
+  margin-top: 96px;
+}
 
 @media screen and (prefers-reduced-motion: no-preference) {
   a {

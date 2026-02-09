@@ -16,8 +16,8 @@ const { phone } = data;
   {
     phone && (
       <a href={`tel:${phone}`}>
-    <button class="primary">Забронировать сейчас</button>
-  </a>
+        <button class="primary">Забронировать сейчас</button>
+      </a>
     )
   }
 </section>
@@ -26,17 +26,17 @@ const { phone } = data;
   @use "../../styles/theme";
 
   section {
-    width: 100%;
-    max-width: 1100px;
     padding: 48px 96px;
-    margin: 0 auto;
-    margin-top: 96px;
 
     background-image: radial-gradient(rgba(theme.$accent, 60%), transparent);
     background-position: center;
     background-size: 125% 125%;
     background-repeat: no-repeat;
     border-radius: 64px;
+  }
+
+  h2 {
+    margin-top: 0;
   }
 
   button {
