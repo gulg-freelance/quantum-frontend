@@ -1,5 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
+
+const title = "VR Арена Квантум";
 ---
 
 <footer class="frame">
@@ -35,7 +37,7 @@ import { Icon } from "astro-icon/components";
 
   <hr />
 
-  <span>&copy; VR Арена Квантум, 2026</span>
+  <span>&copy; {title}, {new Date().getFullYear()}</span>
   <a href="/policy.txt" style="float: right;">Политика конфиденциальности</a>
 </footer>
 
