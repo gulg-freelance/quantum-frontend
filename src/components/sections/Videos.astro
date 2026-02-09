@@ -8,7 +8,7 @@ const videoCategories = await getAll("video-categories", {
       populate: "*",
     },
   },
-  });
+});
 ---
 
 <section id="videos">
@@ -23,13 +23,15 @@ const videoCategories = await getAll("video-categories", {
           {category.videos.map((video: any) => (
             <div class="frame">
               <h4>{video.title}</h4>
-              <span>
-                {digitalSecondsDurationFormat.format({
-                  minutes: Math.floor(video.durationSeconds / 60),
-                  seconds: video.durationSeconds % 60,
-                })}
-              </span>
-              <p>Где находится самое увлекательное видео</p>
+              <p>
+                <span class="duration">
+                  {digitalSecondsDurationFormat.format({
+                    minutes: Math.floor(video.durationSeconds / 60),
+                    seconds: video.durationSeconds % 60,
+                  })}
+                </span>
+                {video.description}
+              </p>
             </div>
           ))}
         </div>
@@ -55,13 +57,19 @@ const videoCategories = await getAll("video-categories", {
     object-fit: cover;
   }
 
-  h3,
-  p {
+  h4 {
     margin: 0;
-    padding: 0 8px;
   }
 
-  h3 {
-    text-align: left;
+  .duration {
+    color: theme.$secondary-fg;
+    float: right;
+    margin-left: 12px;
+    margin-bottom: 12px;
+  }
+
+  p {
+    margin-top: 16px;
+    margin-bottom: 0;
   }
 </style>
