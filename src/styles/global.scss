@@ -127,16 +127,6 @@ button {
   }
 }
 
-.frame {
-  border-radius: 64px;
-  padding: 64px;
-
-  background-color: rgba(theme.$bg, 15%);
-  box-shadow: inset 8px -8px 32px rgba(theme.$fg, 10%);
-  border: solid 2px rgba(theme.$fg, 10%);
-  backdrop-filter: blur(2px);
-}
-
 table {
   table-layout: fixed;
   margin: 0 auto;
@@ -164,4 +154,29 @@ hr {
       transparent
     )
     1;
+}
+
+.frame {
+  border-radius: 64px;
+  padding: 64px;
+
+  background-color: rgba(theme.$bg, 15%);
+  box-shadow: inset 8px -8px 32px rgba(theme.$fg, 10%);
+  border: solid 2px rgba(theme.$fg, 10%);
+  backdrop-filter: blur(2px);
+}
+
+.grid {
+  $gap: 32px;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  justify-items: center;
+  gap: 0 $gap; // 0 vertical gap for subgrid
+
+  margin-bottom: -$gap;
+
+  > * {
+    margin-bottom: $gap;
+  }
 }

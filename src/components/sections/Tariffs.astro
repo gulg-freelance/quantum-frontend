@@ -8,7 +8,7 @@ const tariffCategories = getAll("tariff-categories", {
       populate: "*",
     },
   },
-  });
+});
 ---
 
 <section id="tariffs">
@@ -59,9 +59,7 @@ const tariffCategories = getAll("tariff-categories", {
     display: grid;
     grid-template-columns: 1fr max-content;
 
-    min-height: 128px;
     margin: 24px 0;
-    padding: 32px 64px;
   }
 
   h4 {

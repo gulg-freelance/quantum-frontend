@@ -4,13 +4,13 @@ import { currencyFormat, digitalMinutesDurationFormat } from "../../lib/format";
 
 const bundles = await getAll("bundles", {
   populate: "*",
-  });
+});
 ---
 
 <section>
   <h2>Пакеты</h2>
 
-  <div class="container">
+  <div class="grid">
     {
       await Array.fromAsync(bundles, (bundle: any) => (
         <div class="frame">
@@ -56,20 +56,10 @@ const bundles = await getAll("bundles", {
 </section>
 
 <style lang="scss">
-  .container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: center;
-    gap: 32px;
-
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
   .frame {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 3;
   }
 
   h3 {
