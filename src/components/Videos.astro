@@ -1,23 +1,42 @@
+---
+import { fetchApi } from "../lib/api";
+import { currencyFormat, digitalSecondsDurationFormat } from "../lib/format";
+
+const { data } = await fetchApi("video-categories", {
+  populate: {
+    videos: {
+      populate: "*",
+    },
+  },
+  pagination: { limit: -1 },
+});
+---
+
 <section id="videos">
   <h2>Видео 360&deg;</h2>
 
-  <div class="container">
-    <div class="frame">
-      <h3>Видео 1</h3>
-      <span>5:00</span>
-      <p>Где находится самое увлекательное видео</p>
-    </div>
-    <div class="frame">
-      <h3>Видео 2</h3>
-      <span>5:00</span>
-      <p>Где находится самое увлекательное видео</p>
-    </div>
-    <div class="frame">
-      <h3>Видео 3</h3>
-      <span>5:00</span>
-      <p>Где находится самое увлекательное видео</p>
-    </div>
-  </div>
+  {
+    data.map((category: any) => (
+      <div class="category">
+        <h3>{category.name}</h3>
+
+        <div class="container">
+          {category.videos.map((video: any) => (
+            <div class="frame">
+              <h4>{video.title}</h4>
+              <span>
+                {digitalSecondsDurationFormat.format({
+                  minutes: Math.floor(video.durationSeconds / 60),
+                  seconds: video.durationSeconds % 60,
+                })}
+              </span>
+              <p>Где находится самое увлекательное видео</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))
+  }
 </section>
 
 <!-- TODO: fix styling  -->

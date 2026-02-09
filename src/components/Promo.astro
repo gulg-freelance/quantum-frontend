@@ -1,7 +1,25 @@
-<section>
-  <h2>Акция</h2>
-  <p>Весь февраль: стоимость в выходной день по цене буднего дня!</p>
-</section>
+---
+import { fetchApi } from "../lib/api";
+
+let data;
+try {
+  data = (await fetchApi("promotion", {})).data;
+} catch {
+  data = {};
+}
+
+const { title = "", description = "", active = false } = data;
+---
+
+{
+  active && (
+    <section>
+      <h2>Акция</h2>
+      <h3>{title}</h3>
+      <p>{description}</p>
+    </section>
+  )
+}
 
 <style lang="scss">
   @use "../styles/theme";
@@ -21,7 +39,8 @@
     border-radius: 64px;
   }
 
-  h2 {
+  h2,
+  h3 {
     margin: 0;
     margin-bottom: 8px;
     text-align: left;

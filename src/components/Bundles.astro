@@ -1,94 +1,58 @@
+---
+import { fetchApi } from "../lib/api";
+import { currencyFormat, digitalMinutesDurationFormat } from "../lib/format";
+
+const { data } = await fetchApi("bundles", {
+  populate: "*",
+  pagination: { limit: -1 },
+});
+---
+
 <section>
   <h2>Пакеты</h2>
 
   <div class="container">
-    <div class="frame">
-      <h3>Пакет S</h3>
+    {
+      data.map((bundle: any) => (
+        <div class="frame">
+          <h3>{bundle.name}</h3>
+          <div>
+            <p>
+              <b>
+                {digitalMinutesDurationFormat.format({
+                  hours: Math.floor(bundle.totalDurationMinutes / 60),
+                  minutes: bundle.totalDurationMinutes % 60,
+                })}
+              </b>{" "}
+              общего времени
+            </p>
+            <p>
+              до <b>{bundle.maxPeople}</b> человек
+            </p>
+            <ul>
+              {bundle.services.map((service: any) => (
+                <li>{service.description}</li>
+              ))}
+            </ul>
+          </div>
 
-      <div>
-        <p><b>1:45</b> общего времени</p>
-        <p>до <b>10</b> человек</p>
-        <ul>
-          <li>Два часа игры на арене (8 человек)</li>
-          <li>Две Sony PS4</li>
-          <li>45 минут лаунж зона</li>
-        </ul>
-      </div>
-
-      <table>
-        <thead>
-          <tr>
-            <td>Будни</td>
-            <td>Выходные</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>9 000 &#8381;</td>
-            <td>11 000 &#8381;</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="frame">
-      <h3>Пакет M</h3>
-
-      <div>
-        <p><b>2:45</b> общего времени</p>
-        <p>до <b>16</b> человек</p>
-        <ul>
-          <li>Два часа игры на арене (8 человек)</li>
-          <li>Две Sony PS4</li>
-          <li>45 минут лаунж зона</li>
-        </ul>
-      </div>
-
-      <table>
-        <thead>
-          <tr>
-            <td>Будни</td>
-            <td>Выходные</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>16 000 &#8381;</td>
-            <td>18 000 &#8381;</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="frame">
-      <h3>Пакет L</h3>
-
-      <div>
-        <p><b>2:45</b> общего времени</p>
-        <p>до <b>16</b> человек</p>
-        <ul>
-          <li>Два часа игры на арене (8 человек)</li>
-          <li>Две Sony PS4</li>
-          <li>Два часа VR зона</li>
-          <li>45 минут лаунж зона</li>
-        </ul>
-      </div>
-
-      <table>
-        <thead>
-          <tr>
-            <td>Будни</td>
-            <td>Выходные</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>20 000 &#8381;</td>
-            <td>22 000 &#8381;</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+          <table>
+            <thead>
+              <tr>
+                <td>Будни</td>
+                <td>Выходные</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{currencyFormat.format(bundle.weekdayPrice)}</td>
+                <td>{currencyFormat.format(bundle.weekendPrice)}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      ))
+    }
   </div>
 </section>
 

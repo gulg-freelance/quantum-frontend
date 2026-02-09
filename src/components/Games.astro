@@ -1,37 +1,26 @@
+---
+import { fetchApi } from "../lib/api";
+
+const { data } = await fetchApi("games", { populate: "*" });
+---
+
 <section id="games">
   <h2>Игры</h2>
 
   <div class="container">
-    <div class="frame">
-      <img
-        src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3016840/header.jpg?t=1745928304"
-      />
-      <h3>I Am Cat</h3>
-      <p>
-        Приключенческая игра-песочница, в центре которой — кот. Увлекательное
-        путешествие, в котором ты примеришь на себя роль кота.
-      </p>
-    </div>
-    <div class="frame">
-      <img
-        src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3016840/header.jpg?t=1745928304"
-      />
-      <h3>The Climb 2</h3>
-      <p>
-        Острые ощущения восхождения оживают с The Climb 2 — исследуй городскую
-        обстановку и захватывающие карты с ошеломляющими видами.
-      </p>
-    </div>
-    <div class="frame">
-      <img
-        src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3016840/header.jpg?t=1745928304"
-      />
-      <h3>Epic Roller Coasters</h3>
-      <p>
-        Самые уникальные американские горки в мире. В игре три режима:
-        классический, стрельба и гонка.
-      </p>
-    </div>
+    {
+      data.map((game: any) => (
+        <div class="frame">
+          {game.image && (
+            <img
+              src={new URL(game.image.url, import.meta.env.STRAPI_URL).href}
+            />
+          )}
+          <h3>{game.name}</h3>
+          <p>{game.description}</p>
+        </div>
+      ))
+    }
   </div>
 </section>
 

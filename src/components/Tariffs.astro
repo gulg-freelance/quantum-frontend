@@ -1,73 +1,54 @@
+---
+import { fetchApi } from "../lib/api";
+import { currencyFormat, longDurationFormat } from "../lib/format";
+
+const { data } = await fetchApi("tariff-categories", {
+  populate: {
+    tariffs: {
+      populate: "*",
+    },
+  },
+  pagination: { limit: -1 },
+});
+---
+
 <section id="tariffs">
   <h2>Тарифы</h2>
 
-  <div class="category">
-    <h3>VR Арена</h3>
+  {
+    data.map((category: any) => (
+      <div class="category">
+        <h3>{category.name}</h3>
 
-    <div class="frame">
-      <h4>1 человек</h4>
-      <table>
-        <thead>
-          <tr> <td>Длительность</td> <td>Будни</td> <td>Выходные</td> </tr>
-        </thead>
-        <tbody>
-          <tr> <td>30 минут</td> <td>500 &#8381;</td> <td>700 &#8381;</td> </tr>
-          <tr> <td>1 час</td> <td>900 &#8381;</td> <td>1 300 &#8381;</td> </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="frame">
-      <h4>Вся арена</h4>
-      <table>
-        <thead>
-          <tr> <td>Длительность</td> <td>Будни</td> <td>Выходные</td> </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1 час</td>
-            <td>7 000 &#8381;</td>
-            <td>10 000 &#8381;</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <div class="category">
-    <h3>VR Зона</h3>
-
-    <div class="frame">
-      <h4>VR</h4>
-      <table>
-        <thead>
-          <tr> <td>Длительность</td> <td>Будни</td> <td>Выходные</td> </tr>
-        </thead>
-        <tbody>
-          <tr> <td>15 минут</td> <td>400 &#8381;</td> <td>600 &#8381;</td> </tr>
-          <tr> <td>30 минут</td> <td>600 &#8381;</td> <td>800 &#8381;</td> </tr>
-          <tr> <td>1 час</td> <td>1000 &#8381;</td> <td>1 200 &#8381;</td> </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <div class="category">
-    <h3>PlayStation</h3>
-
-    <div class="frame">
-      <h4>PS</h4>
-      <table>
-        <thead>
-          <tr> <td>Длительность</td> <td>Будни</td> <td>Выходные</td> </tr>
-        </thead>
-        <tbody>
-          <tr> <td>30 минут</td> <td>200 &#8381;</td> <td>200 &#8381;</td> </tr>
-          <tr> <td>1 час</td> <td>300 &#8381;</td> <td>300 &#8381;</td> </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+        {category.tariffs.map((tariff: any) => (
+          <div class="frame">
+            <h4>{tariff.name}</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>Длительность</td> <td>Будни</td> <td>Выходные</td>
+                </tr>
+              </thead>
+              <tbody>
+                {tariff.rows.map((row: any) => (
+                  <tr>
+                    <td>
+                      {longDurationFormat.format({
+                        hours: Math.floor(row.durationMinutes / 60),
+                        minutes: row.durationMinutes % 60,
+                      })}
+                    </td>
+                    <td>{currencyFormat.format(row.weekdayPrice)}</td>
+                    <td>{currencyFormat.format(row.weekendPrice)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ))}
+      </div>
+    ))
+  }
 </section>
 
 <style lang="scss">
