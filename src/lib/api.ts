@@ -19,3 +19,19 @@ export async function fetchApi(
     );
   return await response.json();
 }
+
+export async function* getAll(
+  endpoint: string,
+  parameters: any,
+): AsyncGenerator<any> {
+  const { data, meta } = await fetchApi(endpoint, parameters);
+  yield* data;
+
+  for (let page = 2; page <= meta.pagination.pageCount; ++page)
+    yield* (
+      await fetchApi(endpoint, {
+        ...parameters,
+        pagination: { ...(parameters.pagination ?? {}), page },
+      })
+    ).data;
+}

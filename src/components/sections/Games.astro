@@ -1,7 +1,9 @@
 ---
-import { fetchApi } from "../../lib/api";
+import { getAll } from "../../lib/api";
 
-const { data } = await fetchApi("games", { populate: "*" });
+const games = getAll("games", {
+populate: "*",
+});
 ---
 
 <section id="games">
@@ -9,7 +11,7 @@ const { data } = await fetchApi("games", { populate: "*" });
 
   <div class="container">
     {
-      data.map((game: any) => (
+      await Array.fromAsync(games, (game: any) => (
         <div class="frame">
           {game.image && (
             <img

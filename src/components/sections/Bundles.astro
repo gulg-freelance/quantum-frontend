@@ -1,11 +1,10 @@
 ---
-import { fetchApi } from "../../lib/api";
+import { getAll } from "../../lib/api";
 import { currencyFormat, digitalMinutesDurationFormat } from "../../lib/format";
 
-const { data } = await fetchApi("bundles", {
+const bundles = await getAll("bundles", {
   populate: "*",
-  pagination: { limit: -1 },
-});
+  });
 ---
 
 <section>
@@ -13,7 +12,7 @@ const { data } = await fetchApi("bundles", {
 
   <div class="container">
     {
-      data.map((bundle: any) => (
+      await Array.fromAsync(bundles, (bundle: any) => (
         <div class="frame">
           <h3>{bundle.name}</h3>
           <div>
