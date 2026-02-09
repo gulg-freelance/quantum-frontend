@@ -53,6 +53,14 @@ section {
   margin-top: 96px;
 }
 
+a,
+button {
+  color: theme.$fg;
+  font-family: $font-primary;
+  font-size: 20px;
+  text-decoration: none;
+}
+
 @media screen and (prefers-reduced-motion: no-preference) {
   a {
     transition: letter-spacing ease-in-out 200ms;
@@ -63,13 +71,8 @@ section {
   }
 }
 
-a,
-button {
-  color: theme.$fg;
-  font-family: $font-primary;
+a {
   font-weight: 600;
-  font-size: 20px;
-  text-decoration: none;
 }
 
 button {
