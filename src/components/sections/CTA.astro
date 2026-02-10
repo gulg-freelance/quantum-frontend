@@ -9,14 +9,16 @@ try {
 }
 
 const { phone } = data;
+
+const { text, action } = Astro.props;
 ---
 
 <section>
-  <h2>Погрузись в мир безудержного веселья</h2>
+  <h2>{text}</h2>
   {
     phone && (
       <a href={`tel:${phone}`}>
-        <button class="primary">Забронировать сейчас</button>
+        <button class="primary">{action}</button>
       </a>
     )
   }
@@ -27,6 +29,7 @@ const { phone } = data;
 
   section {
     padding: 48px 96px;
+    box-sizing: border-box;
 
     background-image: radial-gradient(rgba(theme.$accent, 60%), transparent);
     background-position: center;
