@@ -23,6 +23,15 @@ const videoCategories = await getAll("video-categories", {
         <div class="grid">
           {category.videos.map((video: any) => (
             <div class="frame">
+              {video.preview != null ? (
+                <img
+                  src={
+                    new URL(video.preview.url, import.meta.env.STRAPI_URL).href
+                  }
+                />
+              ) : (
+                <div />
+              )}
               <h4>{video.title}</h4>
               <p>
                 <span class="duration">
@@ -41,21 +50,31 @@ const videoCategories = await getAll("video-categories", {
   }
 </section>
 
-<!-- TODO: fix styling  -->
 <style lang="scss">
   @use "../../styles/theme";
+  @use "../../styles/wrap";
+
+  .category {
+    margin-bottom: 48px;
+  }
 
   .frame {
     display: grid;
-    grid-template-rows: subgrid;
+    grid-template-rows: auto 1fr auto;
     grid-row: span 3;
   }
 
   img {
-    border-radius: 32px;
+    aspect-ratio: 3 / 2;
     width: 100%;
-    height: 192px;
     object-fit: cover;
+    margin-bottom: 16px;
+    border-radius: 16px;
+  }
+
+  h4,
+  p {
+    @include wrap.wrap;
   }
 
   h4 {
