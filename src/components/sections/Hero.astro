@@ -1,28 +1,31 @@
-<section id="hero">
-  <h1>Арена Квантум &mdash; лучший VR-отдых <nobr>в Екатеринбурге</nobr></h1>
-  <p class="subtitle">
-    Полное погружение, топовое оборудование, приятная атмосфера
-  </p>
-  <a href="#tariffs"><button class="primary">В новый мир</button></a>
-</section>
+<div class="container">
+  <section id="hero">
+    <h1>Арена Квантум &mdash; лучший VR-отдых <nobr>в Екатеринбурге</nobr></h1>
+    <p class="subtitle">
+      Полное погружение, топовое оборудование, приятная атмосфера
+    </p>
+    <a href="#tariffs"><button class="primary">В новый мир</button></a>
+  </section>
+</div>
 
 <style lang="scss">
   @use "../../styles/theme";
 
-  section {
-    margin-top: 0;
-    padding: 64px 96px;
-
+  .container {
     background-image:
       url(/hero.png), radial-gradient(rgba(theme.$accent, 60%), transparent);
     background-position:
-      105% bottom,
+      calc(50% + 384px) bottom,
       5% 55%;
     background-size:
       auto 512px,
       150% 125%;
     background-repeat: no-repeat;
-    border-radius: 0 0 64px 64px;
+  }
+
+  section {
+    margin-top: 0;
+    padding: 64px 0;
   }
 
   h1,
