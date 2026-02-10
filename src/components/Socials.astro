@@ -17,7 +17,7 @@ const { socialMedia = [] } = data;
 const { height = 24 } = Astro.props;
 ---
 
-<ul>
+<ul style=`gap: ${height}px;`>
   {
     socialMedia.map((social: any) => (
       <li>
@@ -37,7 +37,6 @@ const { height = 24 } = Astro.props;
   ul {
     display: inline-flex;
     justify-content: space-between;
-    gap: 24px;
 
     padding: 0;
     margin: 0;

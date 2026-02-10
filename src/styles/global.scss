@@ -82,13 +82,10 @@ a,
 button {
   color: inherit;
   font-family: $font-primary;
-  font-size: 20px;
   text-decoration: none;
 }
 
 a {
-  transition: filter ease-in-out 100ms;
-
   &:not(:has(> button)):hover {
     opacity: 0.75;
   }
@@ -96,6 +93,10 @@ a {
   &:not(:has(*)) {
     // plain text
     font-weight: 600;
+  }
+
+  &:not(footer *) {
+    font-size: 20px;
   }
 }
 
