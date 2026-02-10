@@ -60,6 +60,12 @@ const games = getAll("games", {
       }
     }
 
+    &:not(:has(img)) {
+      h3 {
+        grid-row: span 2;
+      }
+    }
+
     &:hover {
       background-color: rgba(theme.$pink, 25%);
     }
