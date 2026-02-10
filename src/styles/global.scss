@@ -75,55 +75,34 @@ a {
 }
 
 button {
-  height: 48px;
+  height: 64px;
   min-width: 384px;
-  border-radius: 32px;
-  padding: 0 24px;
+  border-radius: 64px;
+  padding: 0 48px;
 
-  background-color: rgba(theme.$fg, 5%);
   color: theme.$fg;
-  border: solid 2px rgba(theme.$fg, 10%);
+  background-image: linear-gradient(to right,
+      theme.$blue,
+      theme.$purple 33.3%,
+      theme.$dark-purple 66.6% 100%);
+  background-size: 300% 100%;
+  border: none;
+  font-family: $font-secondary;
+  font-size: 32px;
+  text-transform: uppercase;
   text-align: center;
 
   cursor: pointer;
 
-  transition: border ease-in-out 75ms;
+  transition: background-position ease-in-out 300ms;
 
   &:hover {
-    background-color: rgba(theme.$fg, 10%);
-    border-color: rgba(theme.$fg, 20%);
+    background-position: 50% 50%;
   }
 
   &:active {
-    background-color: rgba(theme.$fg, 8%);
-    border-color: transparent;
-  }
-
-  &.primary {
-    height: 64px;
-    border-radius: 64px;
-    padding: 0 48px;
-
-    background-image: linear-gradient(to right,
-        theme.$blue,
-        theme.$purple 33.3%,
-        theme.$dark-purple 66.6% 100%);
-    background-size: 300% 100%;
-    border: none;
-    font-family: $font-secondary;
-    font-size: 32px;
-    text-transform: uppercase;
-
-    transition: background-position ease-in-out 300ms;
-
-    &:hover {
-      background-position: 50% 50%;
-    }
-
-    &:active {
-      background-position: 100% 50%;
-      transition: background-position ease-out 75ms;
-    }
+    background-position: 100% 50%;
+    transition: background-position ease-out 75ms;
   }
 }
 
