@@ -46,6 +46,7 @@ const { gallery = [] } = data;
     margin: 0;
     margin-bottom: 32px;
     padding: 0 32px;
+    border-radius: 64px;
     list-style-type: none;
   }
 
@@ -57,19 +58,7 @@ const { gallery = [] } = data;
 
     img {
       height: 384px;
-      border-radius: 64px;
-    }
-
-    &.collapsed {
-      mask: linear-gradient(
-          to bottom,
-          black,
-          black calc(100% - 128px),
-          #fff6 calc(100% - 96px),
-          #fff2 calc(100% - 64px),
-          transparent calc(100% - 32px)
-        )
-        100% 100% / 100% 100%;
+      border-radius: 16px;
     }
   }
 
