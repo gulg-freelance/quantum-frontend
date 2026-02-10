@@ -90,7 +90,7 @@ a {
   transition: filter ease-in-out 100ms;
 
   &:not(:has(> button)):hover {
-    filter: drop-shadow(0px 2px 4px rgba(theme.$secondary-fg, 80%)); // FIXME
+    opacity: 0.75;
   }
 
   &:not(:has(*)) {
