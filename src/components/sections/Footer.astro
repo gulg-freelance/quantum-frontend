@@ -15,7 +15,7 @@ const { address = "", schedule = "" } = data;
 const { title } = Astro.props;
 ---
 
-<footer class="frame">
+<footer>
   <address>
     <div>
       <span style="float: right;">{schedule}</span>
@@ -36,9 +36,11 @@ const { title } = Astro.props;
 <style lang="scss">
   footer {
     box-sizing: border-box;
-    margin-top: 128px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    margin-top: 96px;
+    padding: 64px;
+
+    color: #ccc;
+    font-size: 14px; // TODO: fix anchor tags size
   }
 
   address {
