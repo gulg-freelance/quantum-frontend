@@ -75,7 +75,13 @@ section {
 }
 
 section {
+  position: relative;
   margin-top: 96px;
+}
+
+a[id]:empty {
+  position: absolute;
+  top: -64px;
 }
 
 a,
