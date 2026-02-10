@@ -2,6 +2,7 @@
 import { getAll } from "../../lib/api";
 import { currencyFormat, longDurationFormat } from "../../lib/format";
 
+// TODO: switch to single types to maintain order
 const tariffCategories = getAll("tariff-categories", {
   populate: {
     tariffs: {
