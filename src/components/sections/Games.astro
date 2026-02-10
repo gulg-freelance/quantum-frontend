@@ -27,30 +27,39 @@ const games = getAll("games", {
 </section>
 
 <style lang="scss">
+  @use "../../styles/theme";
   @use "../../styles/wrap";
 
   .frame {
     display: grid;
-    grid-template-rows: subgrid;
     grid-row: span 3;
 
     &.expanded {
+      grid-template-rows: auto 1fr;
       grid-template-columns: auto 1fr;
       grid-column: 1 / -1;
+      gap: 16px 48px;
 
       img {
         grid-row: span 2;
       }
-
-      p {
-        height: max-content;
-      }
     }
 
     &:not(.expanded) {
+      grid-template-rows: subgrid;
+
       p {
         display: none;
       }
+
+      h3 {
+        margin-top: 16px;
+        align-self: center;
+      }
+    }
+
+    &:hover {
+      background-color: rgba(theme.$pink, 25%);
     }
   }
 
@@ -67,12 +76,6 @@ const games = getAll("games", {
 
     margin: 0;
     padding: 0 8px;
-  }
-
-  h3 {
-    margin-top: 16px;
-    margin-bottom: 8px;
-    align-self: center;
   }
 </style>
 
