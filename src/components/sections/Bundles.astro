@@ -56,10 +56,17 @@ const bundles = await getAll("bundles", {
 </section>
 
 <style lang="scss">
+  @use "../../styles/wrap";
+
   .frame {
     display: grid;
     grid-template-rows: subgrid;
     grid-row: span 3;
+  }
+
+  h3,
+  li {
+    @include wrap.wrap;
   }
 
   h3 {
