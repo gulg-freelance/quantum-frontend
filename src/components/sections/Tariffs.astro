@@ -23,7 +23,7 @@ const tariffCategories = getAll("tariff-categories", {
           <div>
             <h3>{category.name}</h3>
           </div>
-          <div>
+          <div class="category">
             {category.tariffs.map((tariff: any) => (
               <div class="frame">
                 <h4>{tariff.name}</h4>
@@ -69,11 +69,15 @@ const tariffCategories = getAll("tariff-categories", {
     top: 96px;
   }
 
+  .category {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
   .frame {
     display: grid;
     grid-template-columns: 1fr max-content;
-
-    margin: 24px 0;
   }
 
   h4 {
