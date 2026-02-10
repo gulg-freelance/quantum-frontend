@@ -7,7 +7,7 @@ import Socials from "../Socials.astro";
 
 <div class="container">
   <header>
-    <a href="#hero">
+    <a class="logo" href="#hero">
       <Image
         src={logo}
         height="24"
@@ -45,7 +45,7 @@ import Socials from "../Socials.astro";
     margin-bottom: -64px;
     box-sizing: border-box;
 
-    background-color: rgba(theme.$bg, 75%);
+    background-color: rgba(theme.$bg, 80%);
     backdrop-filter: blur(4px);
   }
 
@@ -60,6 +60,10 @@ import Socials from "../Socials.astro";
 
     height: 100%;
     box-sizing: border-box;
+  }
+
+  .logo:hover {
+    filter: drop-shadow(0px 2px 4px rgba(theme.$pink, 80%));
   }
 
   ul {
