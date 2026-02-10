@@ -16,14 +16,17 @@ const { gallery = [] } = data;
 ---
 
 <section>
-  <ul id="services" class="frame">
-    <li>Дни Рождения</li>
-    <li>Праздники</li>
-    <li>Корпоративы</li>
-    <li>Тимбилдинг</li>
-  </ul>
+  <h2>
+    Мы проводим
+    <ul>
+      <li>Дни Рождения</li>
+      <li>Праздники</li>
+      <li>Корпоративы</li>
+      <li>Тимбилдинг</li>
+    </ul>
+  </h2>
 
-  <div id="gallery">
+  <div class="gallery">
     {
       gallery.map((photo: any) => (
         <img src={new URL(photo.url, import.meta.env.STRAPI_URL).href} />
@@ -35,22 +38,65 @@ const { gallery = [] } = data;
 <style lang="scss">
   @use "../../styles/theme";
 
-  #services {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 64px;
+  ul {
+    display: inline-grid;
 
-    height: 64px;
-    box-sizing: border-box;
     margin: 0;
-    margin-bottom: 32px;
-    padding: 0 32px;
-    border-radius: 64px;
+    padding: 0;
+
     list-style-type: none;
   }
 
-  #gallery {
+  li {
+    color: transparent;
+    background-image: linear-gradient(to right, theme.$pink, theme.$blue);
+    background-clip: text;
+
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  $itemCount: 4;
+
+  @for $i from 1 through $itemCount {
+    li:nth-child(#{$i}) {
+      animation: slide-in-out
+        (3s * $itemCount)
+        ease-in-out
+        (3s * ($i - 1))
+        infinite
+        both;
+    }
+  }
+
+  @keyframes slide-in-out {
+    0% {
+      translate: 0 -50%;
+      opacity: 0;
+    }
+
+    #{10 / $itemCount}% {
+      translate: 0;
+      opacity: 1;
+    }
+
+    #{90 / $itemCount}% {
+      translate: 0;
+      opacity: 1;
+    }
+
+    #{100 / $itemCount}% {
+      translate: 0 50%;
+      opacity: 0;
+    }
+
+    100% {
+      translate: 0 50%;
+      opacity: 0;
+    }
+  }
+
+  .gallery {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -60,10 +106,5 @@ const { gallery = [] } = data;
       height: 384px;
       border-radius: 16px;
     }
-  }
-
-  #gallery-more {
-    display: block;
-    margin: 0 auto;
   }
 </style>
