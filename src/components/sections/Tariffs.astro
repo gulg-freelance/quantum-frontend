@@ -15,45 +15,57 @@ const tariffCategories = getAll("tariff-categories", {
 <section id="tariffs">
   <h2>Тарифы</h2>
 
-  {
-    await Array.fromAsync(tariffCategories, (category: any) => (
-      <div class="category">
-        <h3>{category.name}</h3>
-
-        {category.tariffs.map((tariff: any) => (
-          <div class="frame">
-            <h4>{tariff.name}</h4>
-            <table>
-              <thead>
-                <tr>
-                  <td>Длительность</td> <td>Будни</td> <td>Выходные</td>
-                </tr>
-              </thead>
-              <tbody>
-                {tariff.rows.map((row: any) => (
-                  <tr>
-                    <td>
-                      {longDurationFormat.format({
-                        hours: Math.floor(row.durationMinutes / 60),
-                        minutes: row.durationMinutes % 60,
-                      })}
-                    </td>
-                    <td>{currencyFormat.format(row.weekdayPrice)}</td>
-                    <td>{currencyFormat.format(row.weekendPrice)}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+  <div class="container">
+    {
+      await Array.fromAsync(tariffCategories, (category: any) => (
+        <>
+          <div>
+            <h3>{category.name}</h3>
           </div>
-        ))}
-      </div>
-    ))
-  }
+          <div>
+            {category.tariffs.map((tariff: any) => (
+              <div class="frame">
+                <h4>{tariff.name}</h4>
+                <table>
+                  <thead>
+                    <tr>
+                      <td>Длительность</td> <td>Будни</td> <td>Выходные</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {tariff.rows.map((row: any) => (
+                      <tr>
+                        <td>
+                          {longDurationFormat.format({
+                            hours: Math.floor(row.durationMinutes / 60),
+                            minutes: row.durationMinutes % 60,
+                          })}
+                        </td>
+                        <td>{currencyFormat.format(row.weekdayPrice)}</td>
+                        <td>{currencyFormat.format(row.weekendPrice)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ))}
+          </div>
+        </>
+      ))
+    }
+  </div>
 </section>
 
 <style lang="scss">
-  .category {
-    margin-bottom: 48px;
+  .container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 48px 96px;
+  }
+
+  h3 {
+    position: sticky;
+    top: 96px;
   }
 
   .frame {
