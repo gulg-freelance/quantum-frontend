@@ -15,8 +15,10 @@ const { title = "", description = "", active = false } = data;
   active && (
     <section>
       <h2>Акция</h2>
-      <h3>{title}</h3>
-      <p>{description}</p>
+      <div class="container">
+        <h3>{title}</h3>
+        <p>{description}</p>
+      </div>
     </section>
   )
 }
@@ -24,23 +26,20 @@ const { title = "", description = "", active = false } = data;
 <style lang="scss">
   @use "../../styles/theme";
 
-  // FIXME
-  section {
+  .container {
     width: min-content;
     min-width: 640px;
-    padding: 48px 96px;
+    padding: 32px 64px;
     margin: 0 auto;
-    margin-top: 128px;
     box-sizing: border-box;
 
     background-image: radial-gradient(rgba(theme.$accent, 60%), transparent);
     background-position: 5% 55%;
     background-size: 400% 400%;
     background-repeat: no-repeat;
-    border-radius: 64px;
+    border-radius: 32px;
   }
 
-  h2,
   h3 {
     margin: 0;
     margin-bottom: 8px;
