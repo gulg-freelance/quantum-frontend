@@ -146,14 +146,25 @@ table {
   }
 }
 
+h2::after,
 hr {
-  border-top: 1px solid;
+  border: none;
+  border-top: 2px solid;
   border-radius: 2px;
-  border-image: linear-gradient(to right,
+  border-image: linear-gradient(
+      to right,
       transparent,
       rgba(theme.$fg, 10%) 10%,
       rgba(theme.$fg, 10%) 90%,
-      transparent) 1;
+      transparent
+    )
+    1;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  margin-top: 12px;
 }
 
 .frame {
