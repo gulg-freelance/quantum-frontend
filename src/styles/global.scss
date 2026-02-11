@@ -42,25 +42,8 @@ h1 {
 }
 
 h2 {
-  @include responsive.xs() {
-    font-size: 16px;
-    margin: 8px 0;
-  }
-
-  @include responsive.s() {
-    font-size: 24px;
-    margin: 16px 0;
-  }
-
-  @include responsive.m() {
-    font-size: 36px;
-    margin: 24px 0;
-  }
-
-  @include responsive.l() {
-    font-size: 48px;
-    margin: 32px 0;
-  }
+  font-size: 48px;
+  margin: 32px 0;
 }
 
 h3 {
@@ -78,7 +61,7 @@ section {
   margin: 0 auto;
 
   @include responsive.xs() {
-    max-width: 400px;
+    max-width: 440px;
     padding: 0 32px;
   }
 
@@ -229,12 +212,28 @@ h2::after {
   $gap: 32px;
 
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(var(--column-count), minmax(0, 1fr));
   gap: 0 $gap; // 0 vertical gap for subgrid
 
   margin-bottom: -$gap;
 
   > * {
     margin-bottom: $gap;
+  }
+
+  @include responsive.xs() {
+    --column-count: 1;
+  }
+
+  @include responsive.s() {
+    --column-count: 2;
+  }
+
+  @include responsive.m() {
+    --column-count: 3;
+  }
+
+  @include responsive.l() {
+    --column-count: 3;
   }
 }

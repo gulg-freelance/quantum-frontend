@@ -37,6 +37,7 @@ const { gallery = [] } = data;
 
 <style lang="scss">
   @use "../../styles/theme";
+  @use "../../styles/responsive";
 
   ul {
     display: inline-grid;
@@ -44,9 +45,11 @@ const { gallery = [] } = data;
     margin: 0;
     padding: 0;
 
-    text-align: left;
-
     list-style-type: none;
+
+    @include responsive.m() {
+      text-align: left;
+    }
   }
 
   li {
@@ -107,6 +110,11 @@ const { gallery = [] } = data;
     img {
       height: 384px;
       border-radius: 16px;
+
+      @include responsive.xs() {
+        max-width: 100%;
+        height: auto;
+      }
     }
   }
 </style>

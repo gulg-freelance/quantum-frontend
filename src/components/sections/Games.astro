@@ -29,6 +29,7 @@ const games = getAll("games", {
 
 <style lang="scss">
   @use "../../styles/theme";
+  @use "../../styles/responsive";
   @use "../../styles/wrap";
 
   .frame {
@@ -37,13 +38,16 @@ const games = getAll("games", {
 
     &.expanded {
       grid-template-rows: auto 1fr;
-      grid-template-columns: auto 1fr;
       grid-column: 1 / -1;
       gap: 16px 48px;
 
-      img {
-        grid-row: span 2;
-        max-height: 192px;
+      @include responsive.m() {
+        grid-template-columns: auto 1fr;
+
+        img {
+          grid-row: span 2;
+          max-height: 192px;
+        }
       }
     }
 
