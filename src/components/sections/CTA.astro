@@ -14,22 +14,28 @@ const { text, action } = Astro.props;
 ---
 
 <section>
-  <h2>{text}</h2>
-  {
-    phone && (
-      <a href={`tel:${phone}`}>
-        <button class="primary">{action}</button>
-      </a>
-    )
-  }
+  <div class="container">
+    <h2>{text}</h2>
+    {
+      phone && (
+        <a href={`tel:${phone}`}>
+          <button class="primary">{action}</button>
+        </a>
+      )
+    }
+  </div>
 </section>
 
 <style lang="scss">
   @use "../../styles/theme";
+  @use "../../styles/wrap";
+  @use "../../styles/responsive";
 
   section {
     margin-top: 64px;
-    padding: 48px 96px;
+  }
+
+  .container {
     box-sizing: border-box;
 
     background-image: radial-gradient(rgba(theme.$accent, 60%), transparent);
@@ -37,10 +43,44 @@ const { text, action } = Astro.props;
     background-size: 125% 125%;
     background-repeat: no-repeat;
     border-radius: 32px;
+
+    @include responsive.xs() {
+      padding: 32px;
+    }
+
+    @include responsive.s() {
+      padding: 38px 48px;
+    }
+
+    @include responsive.m() {
+      padding: 42px 64px;
+    }
+
+    @include responsive.l() {
+      padding: 48px 96px;
+    }
   }
 
   h2 {
+    @include wrap.wrap;
+
     margin-top: 0;
+
+    @include responsive.xs() {
+      font-size: 32px;
+    }
+
+    @include responsive.s() {
+      font-size: 38px;
+    }
+
+    @include responsive.m() {
+      font-size: 42px;
+    }
+
+    @include responsive.l() {
+      font-size: 48px;
+    }
   }
 
   button {
