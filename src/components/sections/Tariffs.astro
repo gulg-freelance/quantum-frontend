@@ -19,11 +19,11 @@ const tariffCategories = getAll("tariff-categories", {
   <div class="container">
     {
       await Array.fromAsync(tariffCategories, (category: any) => (
-        <>
+        <div class="category">
           <div>
             <h3>{category.name}</h3>
           </div>
-          <div class="category">
+          <div class="category-content">
             {category.tariffs.map((tariff: any) => (
               <div class="frame">
                 <h4>{tariff.name}</h4>
@@ -51,17 +51,28 @@ const tariffCategories = getAll("tariff-categories", {
               </div>
             ))}
           </div>
-        </>
+        </div>
       ))
     }
   </div>
 </section>
 
 <style lang="scss">
+  @use "../../styles/responsive";
+
   .container {
     display: grid;
-    grid-template-columns: auto 1fr;
     gap: 48px 96px;
+
+    @include responsive.l() {
+      grid-template-columns: auto 1fr;
+    }
+  }
+
+  .category {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1 / -1;
   }
 
   h3 {
@@ -69,22 +80,37 @@ const tariffCategories = getAll("tariff-categories", {
     top: 96px;
   }
 
-  .category {
+  .category-content {
     display: flex;
     flex-direction: column;
     gap: 24px;
   }
 
   .frame {
-    display: grid;
-    grid-template-columns: 1fr max-content;
+    display: flex;
+    flex-direction: column;
+
+    @include responsive.m() {
+      flex-direction: row;
+    }
   }
 
   h4 {
-    margin: 0;
+    flex: auto;
+    margin-top: 0;
+
+    text-align: center;
+
+    @include responsive.m() {
+      margin: 0;
+
+      text-align: left;
+    }
   }
 
   table {
+    // TODO: fix tables on small screen sizes
+
     height: fit-content;
 
     td {
