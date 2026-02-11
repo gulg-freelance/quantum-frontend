@@ -1,0 +1,16 @@
+$small: 500px;
+$medium: 1200px;
+$large: 1400px;
+
+@mixin responsive($property, $xs-value, $s-value, $m-value, $l-value) {
+  #{$property}: #{$xs-value};
+  @media only screen and (min-width: $small) {
+    #{$property}: #{$s-value};
+  }
+  @media only screen and (min-width: $medium) {
+    #{$property}: #{$m-value};
+  }
+  @media only screen and (min-width: $large) {
+    #{$property}: #{$l-value};
+  }
+}

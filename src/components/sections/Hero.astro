@@ -11,17 +11,20 @@
 
 <style lang="scss">
   @use "../../styles/theme";
+  @use "../../styles/responsive";
 
   .container {
     background-image:
       url(/hero.png), radial-gradient(rgba(theme.$accent, 60%), transparent);
     background-position:
-      calc(50% + 384px) bottom,
+      calc(50% + var(--hero-offset)) bottom,
       5% 55%;
     background-size:
-      auto 512px,
+      auto 75%,
       150% 125%;
     background-repeat: no-repeat;
+
+    @include responsive.responsive(--hero-offset, 64px, 128px, 256px, 384px);
   }
 
   section {
@@ -41,7 +44,7 @@
   .subtitle {
     margin: 16px 0;
 
-    font-size: 32px;
+    @include responsive.responsive(font-size, 12px, 16px, 24px, 32px);
     color: theme.$secondary-fg;
   }
 

@@ -1,5 +1,5 @@
 @use "./theme";
-@use "./breakpoints";
+@use "./responsive";
 
 $font-primary: "Roboto Variable", sans-serif;
 $font-secondary: "Russo One", sans-serif;
@@ -24,21 +24,7 @@ h4 {
 }
 
 h1 {
-  @media only screen and (max-width: breakpoints.$small) {
-    font-size: 24px;
-  }
-
-  @media only screen and (min-width: breakpoints.$small) {
-    font-size: 36px;
-  }
-
-  @media only screen and (min-width: breakpoints.$medium) {
-    font-size: 48px;
-  }
-
-  @media only screen and (min-width: breakpoints.$large) {
-    font-size: 64px;
-  }
+  @include responsive.responsive(font-size, 24px, 36px, 48px, 64px);
 }
 
 h2 {
@@ -61,17 +47,7 @@ section {
   width: 100%;
   margin: 0 auto;
 
-  @media only screen and (min-width: breakpoints.$small) {
-    max-width: 400px;
-  }
-
-  @media only screen and (min-width: breakpoints.$medium) {
-    max-width: 800px;
-  }
-
-  @media only screen and (min-width: breakpoints.$large) {
-    max-width: 1100px;
-  }
+  @include responsive.responsive(max-width, 300px, 400px, 800px, 1100px);
 }
 
 section {
