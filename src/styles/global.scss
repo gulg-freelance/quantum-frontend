@@ -25,11 +25,11 @@ h4 {
 
 h1 {
   @include responsive.xs() {
-    font-size: 24px;
+    font-size: 32px;
   }
 
   @include responsive.s() {
-    font-size: 36px;
+    font-size: 40px;
   }
 
   @include responsive.m() {
@@ -75,24 +75,26 @@ h4 {
 
 header,
 section {
-  width: 100%;
   margin: 0 auto;
-  padding: 0 64px;
 
   @include responsive.xs() {
     max-width: 400px;
+    padding: 0 32px;
   }
 
   @include responsive.s() {
-    max-width: 600px;
+    max-width: 680px;
+    padding: 0 48px;
   }
 
   @include responsive.m() {
     max-width: 900px;
+    padding: 0 64px;
   }
 
   @include responsive.l() {
     max-width: 1100px;
+    padding: 0 64px;
   }
 }
 
@@ -129,10 +131,11 @@ a {
 }
 
 button {
-  height: 64px;
-  min-width: 384px;
+  height: 2em;
+  min-width: 12em;
+  box-sizing: border-box;
   border-radius: 64px;
-  padding: 0 48px;
+  padding: 0 1.5em;
 
   color: theme.$fg;
   background-image: linear-gradient(to right,
@@ -158,15 +161,15 @@ button {
   }
 
   @include responsive.xs() {
-    max-width: 16px;
+    font-size: 26px;
   }
 
   @include responsive.s() {
-    font-size: 18px;
+    font-size: 28px;
   }
 
   @include responsive.m() {
-    font-size: 24px;
+    font-size: 30px;
   }
 
   @include responsive.l() {

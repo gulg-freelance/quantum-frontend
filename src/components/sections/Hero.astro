@@ -22,12 +22,15 @@
       calc(50% + var(--hero-offset)) bottom,
       5% 55%;
     background-size:
-      auto 80%,
+      var(--hero-width, auto) var(--hero-height, 80%),
       150% 125%;
     background-repeat: no-repeat;
 
     @include responsive.xs() {
-      --hero-offset: 64px;
+      --hero-offset: 40%;
+      --hero-width: 70%;
+      --hero-height: auto;
+      padding-bottom: 42vw;
     }
 
     @include responsive.s() {
@@ -49,8 +52,15 @@
     padding-bottom: 64px;
   }
 
+  h1,
+  .subtitle {
+    @include responsive.xs() {
+      text-align: center;
+    }
+  }
+
   h1 {
-    margin: 96px 0 16px 0;
+    margin: 1.5em 0 0.25em 0;
   }
 
   .subtitle {
@@ -58,15 +68,15 @@
     color: theme.$secondary-fg;
 
     @include responsive.xs() {
-      font-size: 12px;
+      font-size: 20px;
     }
 
     @include responsive.s() {
-      font-size: 16px;
+      font-size: 24px;
     }
 
     @include responsive.m() {
-      font-size: 24px;
+      font-size: 28px;
     }
 
     @include responsive.l() {
@@ -75,6 +85,26 @@
   }
 
   button {
-    margin-top: 48px;
+    @include responsive.xs() {
+      position: absolute;
+      bottom: calc(-42vw - 16px);
+      left: 50%;
+
+      transform: translate(-50%, 100%);
+
+      margin-top: 12px;
+    }
+
+    @include responsive.s() {
+      margin-top: 24px;
+    }
+
+    @include responsive.m() {
+      margin-top: 36px;
+    }
+
+    @include responsive.l() {
+      margin-top: 48px;
+    }
   }
 </style>
