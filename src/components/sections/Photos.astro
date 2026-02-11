@@ -44,6 +44,8 @@ const { gallery = [] } = data;
     margin: 0;
     padding: 0;
 
+    text-align: left;
+
     list-style-type: none;
   }
 
@@ -75,17 +77,17 @@ const { gallery = [] } = data;
       opacity: 0;
     }
 
-    #{10 / $itemCount}% {
+    #{calc(10 / $itemCount)}% {
       translate: 0;
       opacity: 1;
     }
 
-    #{90 / $itemCount}% {
+    #{calc(90 / $itemCount)}% {
       translate: 0;
       opacity: 1;
     }
 
-    #{100 / $itemCount}% {
+    #{calc(100 / $itemCount)}% {
       translate: 0 50%;
       opacity: 0;
     }
