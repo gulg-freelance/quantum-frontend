@@ -10,10 +10,10 @@ const games = getAll("games", {
   <a id="games"></a>
   <h2>Игры</h2>
 
-  <div class="grid" data-games-grid>
+  <div class="grid">
     {
       await Array.fromAsync(games, (game: any) => (
-        <div class="frame">
+        <div class="frame" data-game-card>
           {game.image && (
             <img
               src={new URL(game.image.url, import.meta.env.STRAPI_URL).href}
@@ -93,22 +93,9 @@ const games = getAll("games", {
 </style>
 
 <script>
-  import { gsap } from "gsap";
-  import { Flip } from "gsap/Flip";
-  gsap.registerPlugin(Flip);
-
-  const grid = document.querySelector("[data-games-grid]")!;
-  for (const card of grid.children)
+  document.querySelectorAll("[data-game-card]").forEach((card) => {
     card.addEventListener("click", () => {
-      const state = Flip.getState(grid.children);
-
-      const current = grid.querySelector(".expanded");
-      if (current && current !== card) current.classList.remove("expanded");
       card.classList.toggle("expanded");
-
-      Flip.from(state, {
-        duration: 0.5,
-        ease: "power1.inOut",
-      });
     });
+  });
 </script>
