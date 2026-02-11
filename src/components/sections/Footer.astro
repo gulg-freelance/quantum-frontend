@@ -12,7 +12,9 @@ try {
 
 const { address = "", schedule = "" } = data;
 
-const { title } = Astro.props;
+const { title, creationYear } = Astro.props;
+
+const currentYear = new Date().getFullYear();
 ---
 
 <footer>
@@ -29,7 +31,17 @@ const { title } = Astro.props;
 
   <hr />
 
-  <span>&copy; {title}, {new Date().getFullYear()}</span>
+  <span>
+    &copy; {title}, {
+      creationYear == currentYear ? (
+        currentYear
+      ) : (
+        <>
+          {creationYear}&ndash;{currentYear}
+        </>
+      )
+    }
+  </span>
   <a href="/policy.txt" style="float: right;">Политика конфиденциальности</a>
 </footer>
 
