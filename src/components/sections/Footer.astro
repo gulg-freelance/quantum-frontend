@@ -20,8 +20,8 @@ const currentYear = new Date().getFullYear();
 <footer>
   <address>
     <div>
-      <span style="float: right;">{schedule}</span>
       <span style="white-space: pre;">{address}</span>
+      <span class="right">{schedule}</span>
     </div>
     <div>
       <Phone />
@@ -37,6 +37,7 @@ const currentYear = new Date().getFullYear();
     >)
   </span>
   <br />
+  <a href="/policy.txt" class="right">Политика конфиденциальности</a>
   <span>
     &copy; {title}, {
       creationYear == currentYear ? (
@@ -48,10 +49,11 @@ const currentYear = new Date().getFullYear();
       )
     }
   </span>
-  <a href="/policy.txt" style="float: right;">Политика конфиденциальности</a>
 </footer>
 
 <style lang="scss">
+  @use "../../styles/responsive";
+
   footer {
     box-sizing: border-box;
     margin-top: 96px;
@@ -78,5 +80,16 @@ const currentYear = new Date().getFullYear();
 
   hr {
     margin: 32px -48px;
+  }
+
+  .right {
+    @include responsive.xs() {
+      display: block;
+      margin-block: 4px;
+    }
+
+    @include responsive.s() {
+      float: right;
+    }
   }
 </style>
