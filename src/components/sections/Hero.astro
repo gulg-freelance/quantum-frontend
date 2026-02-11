@@ -1,9 +1,11 @@
 <div class="container">
   <section>
     <a id="hero"></a>
-    <h1>Арена Квантум &mdash; лучший VR-отдых <nobr>в Екатеринбурге</nobr></h1>
+    <h1>
+      Арена Квантум &mdash; <br /> лучший VR-отдых <br /> в Екатеринбурге
+    </h1>
     <p class="subtitle">
-      Полное погружение, топовое оборудование, приятная атмосфера
+      Полное погружение, <br /> топовое оборудование, <br /> приятная атмосфера
     </p>
     <a href="#tariffs"><button class="primary">В новый мир</button></a>
   </section>
@@ -20,7 +22,7 @@
       calc(50% + var(--hero-offset)) bottom,
       5% 55%;
     background-size:
-      auto 75%,
+      auto 80%,
       150% 125%;
     background-repeat: no-repeat;
 
@@ -33,7 +35,7 @@
     }
 
     @include responsive.m() {
-      --hero-offset: 320px;
+      --hero-offset: 288px;
     }
 
     @include responsive.l() {
@@ -45,11 +47,6 @@
     margin-top: 0;
     padding-top: 64px;
     padding-bottom: 64px;
-  }
-
-  h1,
-  .subtitle {
-    max-width: 60%;
   }
 
   h1 {
