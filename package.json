@@ -13,6 +13,7 @@
     "@fontsource-variable/roboto": "^5.2.9",
     "@fontsource/russo-one": "^5.2.7",
     "astro": "^5.17.1",
+    "astro-icon": "^1.1.5",
     "gsap": "^3.14.2",
     "qs": "^6.14.1",
     "sass": "^1.97.3",

@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon/components";
 import { fetchApi } from "../lib/api";
 import { formatPhone } from "../lib/format";
 
@@ -10,6 +11,14 @@ try {
 }
 
 const { phone } = data;
+
+const { iconified = false, class: className, ...rest } = Astro.props;
 ---
 
-{phone && <a href={`tel:${phone}`}>{formatPhone(phone)}</a>}
+{
+  phone && (
+    <a href={`tel:${phone}`} class={className} {...rest}>
+      {iconified ? <Icon name="phone" {...rest} /> : formatPhone(phone)}
+    </a>
+  )
+}

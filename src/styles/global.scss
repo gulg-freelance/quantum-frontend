@@ -99,12 +99,16 @@ button {
 }
 
 a {
-  &:not(:has(> button)):hover {
+  &:not(:has(> button:not([popovertarget]))):hover {
     opacity: 0.75;
   }
 
   &:not(:has(*)) {
     // plain text
+    font-weight: 600;
+  }
+
+  &:has(> button[popovertarget]) {
     font-weight: 600;
   }
 
@@ -114,53 +118,63 @@ a {
 }
 
 button {
-  width: 12em;
-  min-width: fit-content;
-  max-width: 100%;
-  height: 2em;
-  box-sizing: border-box;
-  border-radius: 64px;
-  padding: 0 1.5em;
-
-  color: theme.$fg;
-  background-image: linear-gradient(
-    to right,
-    theme.$blue,
-    theme.$purple 33.3%,
-    theme.$dark-purple 66.6% 100%
-  );
-  background-size: 300% 100%;
   border: none;
-  font-family: $font-secondary;
-  text-align: center;
-
   cursor: pointer;
 
-  transition: background-position ease-in-out 300ms;
-
-  &:hover {
-    background-position: 50% 50%;
+  &[popovertarget] {
+    padding: 0;
+    background: none;
+    font-size: inherit;
+    font-weight: inherit;
   }
 
-  &:active {
-    background-position: 100% 50%;
-    transition: background-position ease-out 75ms;
-  }
+  &:not([popovertarget]) {
+    width: 12em;
+    min-width: fit-content;
+    max-width: 100%;
+    height: 2em;
+    box-sizing: border-box;
+    border-radius: 64px;
+    padding: 0 1.5em;
 
-  @include responsive.xs() {
-    font-size: 26px;
-  }
+    color: theme.$fg;
+    background-image: linear-gradient(
+      to right,
+      theme.$blue,
+      theme.$purple 33.3%,
+      theme.$dark-purple 66.6% 100%
+    );
+    background-size: 300% 100%;
+    border: none;
+    font-family: $font-secondary;
+    text-align: center;
 
-  @include responsive.s() {
-    font-size: 28px;
-  }
+    transition: background-position ease-in-out 300ms;
 
-  @include responsive.m() {
-    font-size: 30px;
-  }
+    &:hover {
+      background-position: 50% 50%;
+    }
 
-  @include responsive.l() {
-    font-size: 32px;
+    &:active {
+      background-position: 100% 50%;
+      transition: background-position ease-out 75ms;
+    }
+
+    @include responsive.xs() {
+      font-size: 26px;
+    }
+
+    @include responsive.s() {
+      font-size: 28px;
+    }
+
+    @include responsive.m() {
+      font-size: 30px;
+    }
+
+    @include responsive.l() {
+      font-size: 32px;
+    }
   }
 }
 

@@ -1,0 +1,61 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div id="side-menu" popover="manual">
+  <button class="close" popovertarget="side-menu">
+    <Icon name="close" />
+  </button>
+  <nav>
+    <ul>
+      <li>
+        <a href="#bundles"><button popovertarget="side-menu">Пакеты</button></a>
+      </li>
+      <li>
+        <a href="#tariffs"><button popovertarget="side-menu">Тарифы</button></a>
+      </li>
+      <li>
+        <a href="#games"><button popovertarget="side-menu">Игры</button></a>
+      </li>
+      <li>
+        <a href="#videos"><button popovertarget="side-menu">Видео</button></a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<style lang="scss">
+  @use "../styles/theme";
+
+  div::backdrop {
+    margin-top: 64px; // account for header
+    backdrop-filter: brightness(0.4) blur(4px);
+  }
+
+  div {
+    z-index: 1;
+    inset: 64px 0 0 auto;
+    width: 256px;
+    height: auto;
+    padding: 8px 40px 8px 8px;
+
+    color: theme.$fg;
+    background-color: rgba(theme.$bg, 80%);
+    border: none;
+  }
+
+  .close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
+
+  [data-icon] {
+    width: 24px;
+    height: 24px;
+  }
+
+  ul {
+    margin: 0;
+  }
+</style>

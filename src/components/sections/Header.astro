@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 import Phone from "../Phone.astro";
 import logo from "../../assets/logo.png";
 import Socials from "../Socials.astro";
@@ -26,14 +27,20 @@ import Socials from "../Socials.astro";
       </ul>
     </nav>
 
-    <Phone />
-
-    <Socials class="socials" />
+    <div class="right">
+      <Phone class="phone" />
+      <Phone class="phone-icon" iconified={true} />
+      <Socials class="socials" />
+      <button popovertarget="side-menu">
+        <Icon name="menu" class="menu-icon" />
+      </button>
+    </div>
   </header>
 </div>
 
 <style lang="scss">
   @use "../../styles/theme";
+  @use "../../styles/responsive";
 
   .container {
     position: fixed;
@@ -49,7 +56,8 @@ import Socials from "../Socials.astro";
   }
 
   header,
-  ul {
+  ul,
+  .right {
     display: flex;
     align-items: center;
   }
@@ -61,21 +69,58 @@ import Socials from "../Socials.astro";
   }
 
   .logo:hover {
+    opacity: 1;
     filter: drop-shadow(0px 2px 4px rgba(theme.$pink, 80%));
   }
 
-  ul {
-    justify-content: space-between;
-
+  nav ul {
+    align-items: center;
+    gap: 32px;
     padding: 0;
     margin: 0;
 
     list-style-type: none;
   }
 
-
-  .socials {
+  .socials,
+  .right {
     height: 24px;
     gap: 24px;
+  }
+
+  [data-icon] {
+    width: 24px;
+    height: 24px;
+  }
+
+  nav,
+  .phone {
+    display: none;
+  }
+
+  @include responsive.xs() {
+    .socials {
+      display: none;
+    }
+  }
+
+  @include responsive.m() {
+    nav {
+      display: inline-block;
+    }
+
+    .menu-icon {
+      display: none;
+    }
+  }
+
+  @include responsive.l() {
+    .phone {
+      display: inline-block;
+    }
+
+    .phone-icon {
+      display: none;
+    }
   }
 </style>
