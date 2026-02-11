@@ -25,7 +25,7 @@ const currentYear = new Date().getFullYear();
     </div>
     <div>
       <Phone />
-      <span style="float: right;"><Socials height="16" /></span>
+      <Socials class="socials" />
     </div>
   </address>
 
@@ -61,6 +61,13 @@ const currentYear = new Date().getFullYear();
     div {
       margin-bottom: 24px;
     }
+  }
+
+  .socials {
+    height: 16px;
+    gap: 12px;
+
+    float: right;
   }
 
   hr {

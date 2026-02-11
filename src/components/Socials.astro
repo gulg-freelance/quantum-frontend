@@ -13,11 +13,9 @@ try {
 }
 
 const { socialMedia = [] } = data;
-
-const { height = 24 } = Astro.props;
 ---
 
-<ul style=`gap: ${height}px;`>
+<ul {...Astro.props}>
   {
     socialMedia.map((social: any) => (
       <li>
@@ -25,7 +23,6 @@ const { height = 24 } = Astro.props;
           <img
             src={new URL(social.icon.url, import.meta.env.STRAPI_URL).href}
             title={social.title}
-            height={height}
           />
         </a>
       </li>
@@ -42,5 +39,9 @@ const { height = 24 } = Astro.props;
     margin: 0;
 
     list-style-type: none;
+  }
+
+  img {
+    height: 100%;
   }
 </style>
