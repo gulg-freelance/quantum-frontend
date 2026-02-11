@@ -25,10 +25,12 @@ const { title = "", description = "", active = false } = data;
 
 <style lang="scss">
   @use "../../styles/theme";
+  @use "../../styles/wrap";
 
   .container {
-    width: min-content;
-    min-width: 640px;
+    width: 640px;
+    min-width: min-content;
+    max-width: 100%;
     padding: 32px 64px;
     margin: 0 auto;
     box-sizing: border-box;
@@ -41,12 +43,16 @@ const { title = "", description = "", active = false } = data;
   }
 
   h3 {
+    @include wrap.wrap;
+
     margin: 0;
     margin-bottom: 8px;
     text-align: left;
   }
 
   p {
+    @include wrap.wrap;
+
     margin: 8px 0;
     color: theme.$secondary-fg;
   }
