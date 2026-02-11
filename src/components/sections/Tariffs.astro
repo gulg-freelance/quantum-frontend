@@ -90,6 +90,10 @@ const tariffCategories = getAll("tariff-categories", {
     display: flex;
     flex-direction: column;
 
+    @include responsive.xs() {
+      padding: 24px 8px;
+    }
+
     @include responsive.m() {
       flex-direction: row;
     }
@@ -109,12 +113,16 @@ const tariffCategories = getAll("tariff-categories", {
   }
 
   table {
-    // TODO: fix tables on small screen sizes
-
     height: fit-content;
 
     td {
       padding: 8px 32px;
+
+      @include responsive.xs() {
+        hyphens: auto;
+
+        padding: 4px;
+      }
     }
   }
 </style>
