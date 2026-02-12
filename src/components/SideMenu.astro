@@ -36,8 +36,9 @@ import { Icon } from "astro-icon/components";
     z-index: 1;
     inset: 64px 0 0 auto;
     width: 256px;
+    max-width: 100%;
     height: auto;
-    padding: 8px 40px 8px 8px;
+    padding: 0;
 
     color: theme.$fg;
     background-color: rgba(theme.$bg, 80%);
@@ -45,9 +46,8 @@ import { Icon } from "astro-icon/components";
   }
 
   .close {
-    position: absolute;
-    top: 8px;
-    right: 8px;
+    float: right;
+    margin: 24px;
   }
 
   [data-icon] {
@@ -57,5 +57,10 @@ import { Icon } from "astro-icon/components";
 
   ul {
     margin: 0;
+    margin-left: 24px;
+  }
+
+  li {
+    margin: 24px 0;
   }
 </style>
