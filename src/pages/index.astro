@@ -41,6 +41,10 @@ const creationYear = 2026;
     <meta property="og:description" content={description} />
     <meta property="og:image" content={new URL("social.png", Astro.site)} />
     <meta property="og:url" content={Astro.site} />
+
+    <script
+      src={`https://api-maps.yandex.ru/v3/?apikey=${import.meta.env.YANDEX_MAPS_API_KEY}&lang=ru_RU`}
+    ></script>
   </head>
   <body>
     <Header />

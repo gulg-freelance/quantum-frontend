@@ -23,6 +23,7 @@ const currentYear = new Date().getFullYear();
       <span style="white-space: pre;">{address}</span>
       <span class="right">{schedule}</span>
     </div>
+    <div id="map"></div>
     <div>
       <Phone />
       <Socials class="socials" />
@@ -48,6 +49,23 @@ const currentYear = new Date().getFullYear();
       )
     }
   </span>
+
+  <script>
+    (async () => {
+      await ymaps3.ready;
+
+      const { YMap, YMapDefaultSchemeLayer } = ymaps3;
+
+      const map = new YMap(document.getElementById("map"), {
+        location: {
+          center: [60.624684, 56.820912],
+          zoom: 16,
+        },
+      });
+
+      map.addChild(new YMapDefaultSchemeLayer());
+    })();
+  </script>
 </footer>
 
 <style lang="scss">
@@ -67,6 +85,21 @@ const currentYear = new Date().getFullYear();
 
     div {
       margin-bottom: 24px;
+    }
+  }
+
+  #map {
+    border-radius: 16px;
+    overflow: clip;
+
+    @include responsive.s() {
+      width: 480px;
+      height: 240px;
+    }
+
+    @include responsive.m() {
+      width: 640px;
+      height: 320px;
     }
   }
 
